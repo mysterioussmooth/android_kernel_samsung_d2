@@ -202,6 +202,10 @@ struct bms_notify {
 	struct	work_struct	work;
 };
 
+static bool ffc = false;
+module_param(ffc, bool, 0666);
+EXPORT_SYMBOL(ffc);
+
 /**
  * struct pm8921_chg_chip -device information
  * @dev:			device pointer to access the parent
@@ -799,7 +803,10 @@ static int pm_chg_iusbmax_set(struct pm8921_chg_chip *chip, int reg_val)
 		pr_err("bad mA=%d asked to set\n", reg_val);
 		return -EINVAL;
 	}
-	temp = reg_val << 2;
+	if (ffc == true)
+		temp = PM8921_CHG_IUSB_MAX << 2;
+	else
+		temp = reg_val << 2;
 	return pm_chg_masked_write(chip, PBL_ACCESS2, PM8921_CHG_IUSB_MASK,
 					 temp);
 }
