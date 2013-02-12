@@ -836,7 +836,7 @@ static struct acpu_level acpu_freq_tbl_8960_kraitv2_fast[] = {
 	{ 1, {  1800000, HFPLL, 1, 0, 0x38 }, L2(19), 1250000 },
 	{ 1, {  1900000, HFPLL, 1, 0, 0x38 }, L2(19), 1275000 },
 	{ 1, {  200000, HFPLL, 1, 0, 0x38 }, L2(19), 1300000 },
-	{ 0, { 0 } }f
+	{ 0, { 0 } }
 };
 
 static struct acpu_level acpu_freq_tbl_8960_kraitv2_f3[] = {
